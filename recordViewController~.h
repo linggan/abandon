@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *finished;
 @property (nonatomic, assign) id<recordViewControllerDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UILabel *duration;
 - (IBAction)Record:(id)sender;
 @end
 

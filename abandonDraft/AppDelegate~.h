@@ -1,5 +1,5 @@
 //
-//  CFZAppDelegate.h
+//  AppDelegate.h
 //  abandonDraft
 //
 //  Created by Gwendolyn Weston on 1/19/13.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "recordViewController.h"
 
-@interface CFZAppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, recordViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

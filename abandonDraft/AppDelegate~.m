@@ -1,19 +1,20 @@
 //
-//  CFZAppDelegate.m
+//  AppDelegate.m
 //  abandonDraft
 //
 //  Created by Gwendolyn Weston on 1/19/13.
 //  Copyright (c) 2013 Coefficient Zero. All rights reserved.
 //
 
-#import "CFZAppDelegate.h"
+#import "AppDelegate.h"
 #import "recordViewController.h"
 
-@implementation CFZAppDelegate
+@implementation AppDelegate
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize recordVC;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -23,14 +24,15 @@
     [self.window makeKeyAndVisible];
     [self deleteData];
     [self parseWords];
-    //[self deleteData];
     [self readDataForObject:@"Word"];
-    [self readDataForObject:@"Queue"];
+    //[self readDataForObject:@"Queue"];
+    
+    [self setRecordVC:[[recordViewController alloc]init]];
+    [[self recordVC] setDelegate:self];
 
     return YES;
 }
 
-//****I SHOULD PROBABLY LEARN TO USE PRAGMA MARKS.
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -128,6 +130,7 @@
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 
+#pragma mark - Parsing Algorithm
 // PARSE WORDS
 -(void)parseWords{
     //read in new characters
@@ -183,63 +186,6 @@
         [self extractCorrectWord:[wordList objectAtIndex:currentWordIndex] FromDatabase:dcontent withRange:currentIteration];
     }
 
-    [self saveContext];
-}
-
--(void)readDataForObject: (NSString *)objectName{
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:objectName inManagedObjectContext:context];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    [fetchRequest setEntity:wordEntity];
-    
-    if ([objectName isEqualToString:@"Word"]){
-        NSArray *words = [context executeFetchRequest:fetchRequest error:nil];
-        int i;
-        for (i = 0; i<[words count]; i++){
-            NSLog(@"Word: %@, %@, %@", [[words objectAtIndex:i] valueForKey:@"chinese"], [[words objectAtIndex:i] valueForKey:@"pinyin"], [[words objectAtIndex:i] valueForKey:@"english"]);
-        }
-    }
-    
-    if ([objectName isEqualToString:@"Queue"]){
-        NSArray *queue = [context executeFetchRequest:fetchRequest error:nil];
-        NSLog(@"Queue Found: %@", [[queue objectAtIndex: 0] valueForKey:@"name"]);
-        
-        
-        NSSet *wordList = [queue valueForKey:@"notRecorded"];
-        
-        //****SO CONFUSED ABOUT HOW TO ACCESS SEPARATE ENTRIES. WHAAT.
-        
-        /*
-        id word;
-        for (word in wordList){
-            //NSLog(@"%@", [word valueForKey:@"pinyin"]);
-            NSLog(@"Word: %@, %@, %@", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"]); 
-         }*/
-        
-        
-        //NSArray *words = [queue valueForKey:@"notRecorded"];
-        NSArray *words = [wordList allObjects];
-        int i = 0;
-        for (i = 0; i<[words count]; i++){
-            NSLog(@"Word: %@, %@, %@", [[words objectAtIndex:i] valueForKey:@"chinese"], [[words objectAtIndex:i] valueForKey:@"pinyin"], [[words objectAtIndex:i] valueForKey:@"english"]);
-        }
-    }
-
-}
-
--(void)deleteData{
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:@"Word" inManagedObjectContext:context];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    [fetchRequest setEntity:wordEntity];
-    
-    NSArray *words = [context executeFetchRequest:fetchRequest error:nil];
-    
-    for (int i = 0; i <[words count]; i++){
-        [_managedObjectContext deleteObject:[words objectAtIndex:i]];
-    }
-    
     [self saveContext];
 }
 
@@ -362,5 +308,73 @@
 
 }
 
-//****ADD DELEGATE METHOD FOR DELETING STUFF FROM QUEUE HERE
+#pragma mark - Managing Core Data (reading/deleting)
+
+-(NSArray *)readDataForObject: (NSString *)objectName{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:objectName inManagedObjectContext:context];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    [fetchRequest setEntity:wordEntity];
+    
+    NSArray *wordList = [[NSArray alloc]init];
+    
+    if ([objectName isEqualToString:@"Word"]){
+        wordList = [context executeFetchRequest:fetchRequest error:nil];
+        id word;
+        for (word in wordList){
+            NSLog(@"Word: %@, %@, %@", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"]);
+        }
+    }
+    
+    if ([objectName isEqualToString:@"Queue"]){
+        NSArray *queueList = [context executeFetchRequest:fetchRequest error:nil];
+        NSManagedObject *queue = [queueList objectAtIndex:0];
+        NSLog(@"Queue Found: %@", [[queueList objectAtIndex: 0] valueForKey:@"name"]);
+                
+        NSSet *wordSet = [queue valueForKey:@"notRecorded"];
+         id word;
+         for (word in wordSet){
+         NSLog(@"Word: %@, %@, %@", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"]);
+         }
+        wordList = [wordSet allObjects];
+    }
+    return wordList;
+}
+
+-(void)deleteData{
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:@"Word" inManagedObjectContext:context];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    [fetchRequest setEntity:wordEntity];
+    
+    NSArray *words = [context executeFetchRequest:fetchRequest error:nil];
+    
+    for (int i = 0; i <[words count]; i++){
+        [_managedObjectContext deleteObject:[words objectAtIndex:i]];
+    }
+    
+    [self saveContext];
+}
+
+
+-(void)getWordsFromQueue:(recordViewController*)recordViewController{
+    NSArray *wordList = [self readDataForObject:@"word"];
+    [[self recordVC] setWordList:wordList];
+    
+}
+-(void)deleteWordFromQueue:(recordViewController*)recordViewController{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:@"Word" inManagedObjectContext:context];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
+    [fetchRequest setEntity:wordEntity];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(chinese like[cd] %@)", [[[self recordVC] CurrentWord] text]]];
+    NSArray *result = [context executeFetchRequest:fetchRequest error:nil];
+
+    [_managedObjectContext deleteObject:[result objectAtIndex:0]];
+    
+    [self saveContext];
+
+
+}
 @end
