@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "recordViewController.h"
+#import "reviewViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, recordViewControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, coreDataDelegate, recordViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -18,6 +19,7 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 @property (nonatomic, retain) recordViewController *recordVC;
+@property (nonatomic, retain) reviewViewController *reviewVC;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

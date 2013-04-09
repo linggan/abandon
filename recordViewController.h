@@ -8,30 +8,31 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "coreDataDelegate.h"
 
-@protocol recordViewControllerDelegate;
+@protocol recordViewControllerDelegate <NSObject>
+-(void)deleteWordFromQueue:(NSString *)Word;
+-(void)storeAAC:(NSString *)URL ForWord:(NSString *)Word InLanguage:(NSString *)Language;
+@end
 
 @interface recordViewController : UIViewController
-<AVAudioRecorderDelegate, AVAudioRecorderDelegate>
+<AVAudioRecorderDelegate>
 
-@property (retain, nonatomic) AVAudioRecorder *audioRecorder;
+@property (retain, nonatomic) AVAudioRecorder *recorder;
 @property (retain, nonatomic) NSArray *wordList;
+@property (nonatomic, retain) NSTimer* timer;
+
 @property int timesPressed;
 @property int currentIndex;
-@property BOOL recording;
 
-
-@property (weak, nonatomic) IBOutlet UILabel *CurrentWord;
 @property (weak, nonatomic) IBOutlet UILabel *Chinese;
 @property (weak, nonatomic) IBOutlet UILabel *English;
 @property (weak, nonatomic) IBOutlet UILabel *finished;
-@property (nonatomic, assign) id<recordViewControllerDelegate> delegate;
-
 @property (weak, nonatomic) IBOutlet UILabel *duration;
-- (IBAction)Record:(id)sender;
-@end
+@property (nonatomic, retain) IBOutlet UIButton* recordBtn;
 
-@protocol recordViewControllerDelegate <NSObject>
--(void)getWordsFromQueue:(recordViewController*)recordViewController;
--(void)deleteWordFromQueue:(recordViewController*)recordViewController;
+
+@property (nonatomic, assign) id<coreDataDelegate, recordViewControllerDelegate> delegate;
+
+- (IBAction)Record:(id)sender;
 @end

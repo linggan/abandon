@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C428DAE117069F5E006F79A4 /* CharacterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C428DAE017069F5E006F79A4 /* CharacterCell.m */; };
 		C444ADB716FA694700474BF2 /* char.txt in Resources */ = {isa = PBXBuildFile; fileRef = C444ADB616FA694700474BF2 /* char.txt */; };
 		C444ADBD16FAA8A300474BF2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C444ADBC16FAA8A300474BF2 /* AVFoundation.framework */; };
 		C453A1EE16AB8F8F00D36616 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C453A1ED16AB8F8F00D36616 /* UIKit.framework */; };
@@ -23,13 +24,15 @@
 		C453A21016AC9ADA00D36616 /* dict.txt in Resources */ = {isa = PBXBuildFile; fileRef = C453A20F16AC9ADA00D36616 /* dict.txt */; };
 		C453A21716AC9C7D00D36616 /* recordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C453A21516AC9C7D00D36616 /* recordViewController.m */; };
 		C453A21816AC9C7D00D36616 /* recordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A21616AC9C7D00D36616 /* recordViewController.xib */; };
-		C453A21F16ACC79200D36616 /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C453A21D16ACC79200D36616 /* testViewController.m */; };
-		C453A22016ACC79200D36616 /* testViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A21E16ACC79200D36616 /* testViewController.xib */; };
 		C453A22416ACD35F00D36616 /* reviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C453A22216ACD35E00D36616 /* reviewViewController.m */; };
 		C453A22516ACD35F00D36616 /* reviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A22316ACD35E00D36616 /* reviewViewController.xib */; };
+		C48AEDC31714B6660000F5EE /* rootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48AEDC11714B6660000F5EE /* rootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C428DAD817068BB1006F79A4 /* coreDataDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coreDataDelegate.h; sourceTree = "<group>"; };
+		C428DADF17069F5E006F79A4 /* CharacterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterCell.h; sourceTree = "<group>"; };
+		C428DAE017069F5E006F79A4 /* CharacterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterCell.m; sourceTree = "<group>"; };
 		C444ADB616FA694700474BF2 /* char.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = char.txt; sourceTree = "<group>"; };
 		C444ADBC16FAA8A300474BF2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C453A1E916AB8F8F00D36616 /* abandonDraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = abandonDraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,12 +54,10 @@
 		C453A21416AC9C7D00D36616 /* recordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = recordViewController.h; path = ../recordViewController.h; sourceTree = "<group>"; };
 		C453A21516AC9C7D00D36616 /* recordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = recordViewController.m; path = ../recordViewController.m; sourceTree = "<group>"; };
 		C453A21616AC9C7D00D36616 /* recordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = recordViewController.xib; path = ../recordViewController.xib; sourceTree = "<group>"; };
-		C453A21C16ACC79200D36616 /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
-		C453A21D16ACC79200D36616 /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
-		C453A21E16ACC79200D36616 /* testViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = testViewController.xib; sourceTree = "<group>"; };
 		C453A22116ACD35E00D36616 /* reviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewViewController.h; sourceTree = "<group>"; };
 		C453A22216ACD35E00D36616 /* reviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewViewController.m; sourceTree = "<group>"; };
 		C453A22316ACD35E00D36616 /* reviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reviewViewController.xib; sourceTree = "<group>"; };
+		C48AEDC11714B6660000F5EE /* rootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = rootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,17 +108,18 @@
 		C453A1F516AB8F8F00D36616 /* abandonDraft */ = {
 			isa = PBXGroup;
 			children = (
+				C428DAD817068BB1006F79A4 /* coreDataDelegate.h */,
 				C453A1FE16AB8F8F00D36616 /* AppDelegate.h */,
 				C453A1FF16AB8F8F00D36616 /* AppDelegate.m */,
-				C453A21C16ACC79200D36616 /* testViewController.h */,
-				C453A21D16ACC79200D36616 /* testViewController.m */,
-				C453A21E16ACC79200D36616 /* testViewController.xib */,
+				C48AEDC11714B6660000F5EE /* rootViewController.xib */,
 				C453A21416AC9C7D00D36616 /* recordViewController.h */,
 				C453A21516AC9C7D00D36616 /* recordViewController.m */,
 				C453A21616AC9C7D00D36616 /* recordViewController.xib */,
 				C453A22116ACD35E00D36616 /* reviewViewController.h */,
 				C453A22216ACD35E00D36616 /* reviewViewController.m */,
 				C453A22316ACD35E00D36616 /* reviewViewController.xib */,
+				C428DADF17069F5E006F79A4 /* CharacterCell.h */,
+				C428DAE017069F5E006F79A4 /* CharacterCell.m */,
 				C453A20716AB8F8F00D36616 /* abandonDraft.xcdatamodeld */,
 				C444ADB616FA694700474BF2 /* char.txt */,
 				C453A20F16AC9ADA00D36616 /* dict.txt */,
@@ -198,9 +200,9 @@
 				C453A20616AB8F8F00D36616 /* Default-568h@2x.png in Resources */,
 				C453A21016AC9ADA00D36616 /* dict.txt in Resources */,
 				C453A21816AC9C7D00D36616 /* recordViewController.xib in Resources */,
-				C453A22016ACC79200D36616 /* testViewController.xib in Resources */,
 				C453A22516ACD35F00D36616 /* reviewViewController.xib in Resources */,
 				C444ADB716FA694700474BF2 /* char.txt in Resources */,
+				C48AEDC31714B6660000F5EE /* rootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,8 +217,8 @@
 				C453A20016AB8F8F00D36616 /* AppDelegate.m in Sources */,
 				C453A20916AB8F8F00D36616 /* abandonDraft.xcdatamodeld in Sources */,
 				C453A21716AC9C7D00D36616 /* recordViewController.m in Sources */,
-				C453A21F16ACC79200D36616 /* testViewController.m in Sources */,
 				C453A22416ACD35F00D36616 /* reviewViewController.m in Sources */,
+				C428DAE117069F5E006F79A4 /* CharacterCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

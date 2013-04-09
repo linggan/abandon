@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "recordViewController.h"
+#import "reviewViewController.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,8 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize recordVC;
+@synthesize reviewVC;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -24,31 +27,19 @@
     [self.window makeKeyAndVisible];
     [self deleteData];
     [self parseWords];
-    [self readDataForObject:@"Word"];
+    //[self readDataForObject:@"Word"];
     //[self readDataForObject:@"Queue"];
     
     [self setRecordVC:[[recordViewController alloc]init]];
     [[self recordVC] setDelegate:self];
+    
+    [self setReviewVC:[[reviewViewController alloc]init]];
+    [[self reviewVC] setDataDelegate:self];
+    
     [_window addSubview:[recordVC view]];
+    //[_window addSubview:[reviewVC view]];
 
     return YES;
-}
-
-
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -166,30 +157,27 @@
             [newList removeObjectAtIndex:i];
             i--;
         }
-        if ([[wordList objectAtIndex:i] isEqualToString:@""]){
+        else if ([[wordList objectAtIndex:i] isEqualToString:@""]){
             [newList removeObjectAtIndex:i];
             i--;
         }
     }
     wordList = newList;
     
-    NSLog(@"%@", vcontent);
-    
+    //NSLog(@"%@", vcontent);
     //NSLog(@"%@", wordList);
-
     
     NSRange currentIteration;
     currentIteration.length = [dcontent length];
     currentIteration.location = 0;
     
     int currentWordIndex;
-    for (currentWordIndex = 0; currentWordIndex<=([wordList count]-1); currentWordIndex++){
+    for (currentWordIndex = 0; currentWordIndex<[wordList count]; currentWordIndex++){
         [self extractCorrectWord:[wordList objectAtIndex:currentWordIndex] FromDatabase:dcontent withRange:currentIteration];
     }
 
     [self saveContext];
 }
-
 
 -(void)extractCorrectWord: (NSString*)word FromDatabase: (NSString *)dcontent withRange: (NSRange)currentIteration{
                 
@@ -318,9 +306,9 @@
     [fetchRequest setEntity:wordEntity];
     
     NSArray *wordList = [[NSArray alloc]init];
+    wordList = [context executeFetchRequest:fetchRequest error:nil];
     
     if ([objectName isEqualToString:@"Word"]){
-        wordList = [context executeFetchRequest:fetchRequest error:nil];
         id word;
         for (word in wordList){
             NSLog(@"Word: %@, %@, %@", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"]);
@@ -339,6 +327,8 @@
          }
         wordList = [wordSet allObjects];
     }
+    //NSLog(@"this is the %@", wordList);
+
     return wordList;
 }
 
@@ -358,24 +348,52 @@
     [self saveContext];
 }
 
+#pragma mark - Methods for protocols
 
--(void)getWordsFromQueue:(recordViewController*)recordViewController{
-    NSArray *wordList = [self readDataForObject:@"word"];
-    [[self recordVC] setWordList:wordList];
-    
+-(void)getWordsFromQueue:(id)ViewController{
+    NSArray *wordList = [self readDataForObject:@"Queue"];
+    [ViewController setWordList:wordList];
 }
--(void)deleteWordFromQueue:(recordViewController*)recordViewController{
+
+-(void)deleteWordFromQueue:(NSString*)Word{
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *queueEntity = [NSEntityDescription entityForName:@"Queue" inManagedObjectContext:context];
+    NSFetchRequest *queueFetchRequest = [[NSFetchRequest alloc]init];
+    [queueFetchRequest setEntity:queueEntity];
+    NSArray *list = [context executeFetchRequest:queueFetchRequest error:nil];
+    NSManagedObject *queue;
+    queue = [list objectAtIndex:0];
+    
+    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:@"Word" inManagedObjectContext:context];
+    NSFetchRequest *wordFetchRequest = [[NSFetchRequest alloc]init];
+    [wordFetchRequest setEntity:wordEntity];
+    [wordFetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(chinese like[cd] %@)", Word]];
+    NSArray *wordObject = [context executeFetchRequest:wordFetchRequest error:nil];
+        
+    NSMutableSet *newWords = [queue mutableSetValueForKey:@"notRecorded"];
+    [newWords removeObject:[wordObject objectAtIndex:0]];
+    
+    [self readDataForObject:@"Queue"];
+    
+    [self saveContext];
+}
+
+-(void)storeAAC:(NSString *)URL ForWord:(NSString *)Word InLanguage:(NSString *)Language{
     NSManagedObjectContext *context = [self managedObjectContext];
     NSEntityDescription *wordEntity = [NSEntityDescription entityForName:@"Word" inManagedObjectContext:context];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
     [fetchRequest setEntity:wordEntity];
-    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(chinese like[cd] %@)", [[[self recordVC] CurrentWord] text]]];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"(chinese like[cd] %@)", Word]];
     NSArray *result = [context executeFetchRequest:fetchRequest error:nil];
-
-    [_managedObjectContext deleteObject:[result objectAtIndex:0]];
+    
+    if ([Language isEqualToString:@"English"]){
+        [[result objectAtIndex:0] setValue:URL forKey:@"englishRecording"];
+    }
+    if ([Language isEqualToString:@"Chinese"]){
+        [[result objectAtIndex:0] setValue:URL forKey:@"chineseRecording"];
+    }
     
     [self saveContext];
-
 
 }
 @end

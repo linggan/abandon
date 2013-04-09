@@ -10,16 +10,24 @@
 
 
 #import "recordViewController.h"
-
 #define DOCUMENTS_FOLDER [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]
 
-
 @implementation recordViewController
-@synthesize audioRecorder, wordList, CurrentWord, Chinese, English, timesPressed, currentIndex, finished, recording, duration;
+@synthesize recorder, wordList, Chinese, English, timesPressed, currentIndex, finished, duration, timer, recordBtn;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //init audio session
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *sessionError;
+    [session setCategory:AVAudioSessionCategoryRecord error:&sessionError];
+    
+    if(session == nil)
+        NSLog(@"Error creating session: %@", [sessionError description]);
+    else{
+        [session setActive:YES error:nil];
+    }
     [self setTimesPressed:0];
     [self setCurrentIndex:0];
     [self getWordsFromQueue:self];
@@ -29,86 +37,126 @@
 - (void)viewDidUnload {
 }
 
-//on first press, record chinese and bold pinyin. save record url in object
-//on second press, record english and bold translation.  save record url in object
-//on third press, stop recording and move onto next word
-- (IBAction)Record:(id)sender {
-    while(currentIndex<[wordList count]){
-        
-        recording = true;
-        //settings for aac format
-        NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
-        [recordSetting setValue :[NSNumber numberWithInt:kAudioFormatMPEG4AAC] forKey:AVFormatIDKey];
-        [recordSetting setValue:[NSNumber numberWithFloat:44100.0] forKey:AVSampleRateKey];
-        [recordSetting setValue:[NSNumber numberWithInt: 2] forKey:AVNumberOfChannelsKey];
-        
-        NSError *err = nil;
-        NSURL *url; 
+- (IBAction)Record:(id)sender{
+    NSURL *url;
+    NSString *URLString;
+    
+    if (currentIndex<[wordList count]){
+        NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentPath = [searchPaths objectAtIndex:0];
+        NSString *hanzi = [[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"];
+        NSString *pinyin = [[wordList objectAtIndex:currentIndex] valueForKey:@"pinyin"];
+        NSString *english = [[wordList objectAtIndex:currentIndex] valueForKey:@"english"];
 
-        
         switch (timesPressed) {
-            case '0':
-                //file name
-                url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@.aac",DOCUMENTS_FOLDER,[[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"]]];
+            case 0:
+                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"%@.aac", hanzi]];
+                url = [NSURL fileURLWithPath:URLString];
+                [self storeAAC: URLString ForWord:hanzi InLanguage:@"Chinese"];
                 
-                //initializing arecorder here instead of viewdidload because after init, can't change url where recorder writes to
-                //so each time a separate file is recorded, must init a new recorder
-                audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&err];
-                
-                [audioRecorder setDelegate:self];
-                [audioRecorder prepareToRecord];
-                [CurrentWord setText:[[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"]];
-                [Chinese setText:[[wordList objectAtIndex:currentIndex] valueForKey:@"pinyin"]];
-                [English setText:[[wordList objectAtIndex:currentIndex] valueForKey:@"english"]];
-                
-                [audioRecorder stop];  //stop recording the word from previous index
-                [audioRecorder record];
-                [English setFont:[UIFont fontWithName:@"Helvetica" size:16]];
-                [Chinese setFont:[UIFont fontWithName:@"Helvetica Bold" size:16]];
+                NSLog(@"%@",[NSString stringWithFormat:@"%@.aac", hanzi]);
+                NSLog(@"destinationString: %@", url);
+                                
+                [self initRecorderWithUrl:url];
+                [recorder stop];  //stop recording the word from previous index
+                [recorder record];
+                timer = [NSTimer scheduledTimerWithTimeInterval:.01f
+                                                         target:self
+                                                       selector:@selector(timerUpdate)
+                                                       userInfo:nil
+                                                        repeats:YES];
+                //[CurrentWord setText:hanzi];
+                [English setFont:[UIFont fontWithName:@"Gill Sans" size:16]];
+                [Chinese setFont:[UIFont fontWithName:@"Gill Sans" size:22]];
+                [Chinese setText:[NSString stringWithFormat:@"%@\n%@",hanzi, pinyin]];
+                [English setText:english];
                 timesPressed++;
+                [recordBtn setTitle:@"Chinese" forState:UIControlStateNormal];
                 break;
-            case '1':
-                url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@(eng).aac",DOCUMENTS_FOLDER,[[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"]]];
+            case 1:
+                /*
+                url = [NSURL fileURLWithPath:[documentPath stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]]];
+                [self storeAAC:url ForWord:hanzi InLanguage:@"English"];*/
+                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"%@.aac(eng)", hanzi]];
+                url = [NSURL fileURLWithPath:URLString];
+                [self storeAAC: URLString ForWord:hanzi InLanguage:@"English"];
+
+
                 
-                audioRecorder = [[ AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&err];
+                NSLog(@"%@",[NSString stringWithFormat:@"%@(eng).aac", hanzi]);
+                NSLog(@"destinationString: %@", url);
                 
-                [audioRecorder stop];
-                [audioRecorder record];
-                [Chinese setFont:[UIFont fontWithName:@"Helvetica" size:16]];
-                [English setFont:[UIFont fontWithName:@"Helvetica Bold" size:16]];
+                [self initRecorderWithUrl:url];
+                [recorder stop];  //stop recording the word from previous index
+                [recorder record];
+                timer = [NSTimer scheduledTimerWithTimeInterval:.01f
+                                                         target:self
+                                                       selector:@selector(timerUpdate)
+                                                       userInfo:nil
+                                                        repeats:YES];
+                [Chinese setFont:[UIFont fontWithName:@"Gill Sans" size:16]];
+                [English setFont:[UIFont fontWithName:@"Gill Sans" size:22]];
                 timesPressed=0;
-                [self deleteWordFromQueue:self];
                 currentIndex++;
+                [recordBtn setTitle:@"English" forState:UIControlStateNormal];
+                [self deleteWordFromQueue:hanzi];
                 break;
             default:
                 break;
         }
     }
-    recording = false;
-    [finished setText:@"All done!"];
-  
+    
+    else{
+        [recorder stop];
+        //[CurrentWord setText:@"all done!"];
+        [Chinese setText:@"all done!"];
+        [English setText:@"all done!"];
+        [recordBtn setTitle:@"all done!" forState:UIControlStateNormal];
+        
+    }
+}
+
+-(void)initRecorderWithUrl:(NSURL *)url{
+    NSDictionary *recordSetting =
+    [[NSDictionary alloc] initWithObjectsAndKeys:
+     [NSNumber numberWithFloat: 44100.0],                 AVSampleRateKey,
+     [NSNumber numberWithInt: kAudioFormatMPEG4AAC], AVFormatIDKey,
+     [NSNumber numberWithInt: 1],                         AVNumberOfChannelsKey,
+     [NSNumber numberWithInt: AVAudioQualityMax],         AVEncoderAudioQualityKey,
+     nil];
+    
+    NSError *err = nil;
+    
+    recorder = [[AVAudioRecorder alloc] initWithURL:url settings:recordSetting error:&err];
+    [recorder setDelegate:self];
+    [recorder prepareToRecord];
 }
 
 
 - (void) timerUpdate
 {
-    if (recording)
-    {
-        int m = audioRecorder.currentTime / 60;
-        int s = ((int) audioRecorder.currentTime) % 60;
-        int ss = (audioRecorder.currentTime - ((int) audioRecorder.currentTime)) * 100;
-        
-        duration.text = [NSString stringWithFormat:@"%.2d:%.2d %.2d", m, s, ss];
-     }
+    
+    int m = recorder.currentTime / 60;
+    int s = ((int) recorder.currentTime) % 60;
+    
+    duration.text = [NSString stringWithFormat:@"%.2d:%.2d", m, s];
 }
 
--(void)getWordsFromQueue:(recordViewController*)recordViewController{
+
+-(void)getWordsFromQueue:(id)ViewController{
     [[self delegate] getWordsFromQueue:self];
     
 }
--(void)deleteWordFromQueue:(recordViewController*)recordViewController{
-    [[self delegate] deleteWordFromQueue:self];
-    
+
+-(void)deleteWordFromQueue:(NSString *)Word{
+    [[self delegate] deleteWordFromQueue:Word];    
 }
+
+-(void)storeAAC:(NSString *)URLString
+        ForWord:(NSString *)Word
+     InLanguage:(NSString *)Language{
+    [[self delegate] storeAAC:URLString ForWord:Word InLanguage:Language];
+}
+
 
 @end
