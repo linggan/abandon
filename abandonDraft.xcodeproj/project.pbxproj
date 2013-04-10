@@ -26,7 +26,8 @@
 		C453A21816AC9C7D00D36616 /* recordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A21616AC9C7D00D36616 /* recordViewController.xib */; };
 		C453A22416ACD35F00D36616 /* reviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C453A22216ACD35E00D36616 /* reviewViewController.m */; };
 		C453A22516ACD35F00D36616 /* reviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A22316ACD35E00D36616 /* reviewViewController.xib */; };
-		C48AEDC31714B6660000F5EE /* rootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48AEDC11714B6660000F5EE /* rootViewController.xib */; };
+		C4C749431715F8E0005DD8D6 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C749411715F8E0005DD8D6 /* rootViewController.m */; };
+		C4C749441715F8E0005DD8D6 /* rootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C749421715F8E0005DD8D6 /* rootViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,9 @@
 		C453A22116ACD35E00D36616 /* reviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewViewController.h; sourceTree = "<group>"; };
 		C453A22216ACD35E00D36616 /* reviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewViewController.m; sourceTree = "<group>"; };
 		C453A22316ACD35E00D36616 /* reviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reviewViewController.xib; sourceTree = "<group>"; };
-		C48AEDC11714B6660000F5EE /* rootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = rootViewController.xib; sourceTree = "<group>"; };
+		C4C749401715F8E0005DD8D6 /* rootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootViewController.h; sourceTree = "<group>"; };
+		C4C749411715F8E0005DD8D6 /* rootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootViewController.m; sourceTree = "<group>"; };
+		C4C749421715F8E0005DD8D6 /* rootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = rootViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,10 +111,12 @@
 		C453A1F516AB8F8F00D36616 /* abandonDraft */ = {
 			isa = PBXGroup;
 			children = (
-				C428DAD817068BB1006F79A4 /* coreDataDelegate.h */,
 				C453A1FE16AB8F8F00D36616 /* AppDelegate.h */,
 				C453A1FF16AB8F8F00D36616 /* AppDelegate.m */,
-				C48AEDC11714B6660000F5EE /* rootViewController.xib */,
+				C4C749401715F8E0005DD8D6 /* rootViewController.h */,
+				C4C749411715F8E0005DD8D6 /* rootViewController.m */,
+				C4C749421715F8E0005DD8D6 /* rootViewController.xib */,
+				C428DAD817068BB1006F79A4 /* coreDataDelegate.h */,
 				C453A21416AC9C7D00D36616 /* recordViewController.h */,
 				C453A21516AC9C7D00D36616 /* recordViewController.m */,
 				C453A21616AC9C7D00D36616 /* recordViewController.xib */,
@@ -202,7 +207,7 @@
 				C453A21816AC9C7D00D36616 /* recordViewController.xib in Resources */,
 				C453A22516ACD35F00D36616 /* reviewViewController.xib in Resources */,
 				C444ADB716FA694700474BF2 /* char.txt in Resources */,
-				C48AEDC31714B6660000F5EE /* rootViewController.xib in Resources */,
+				C4C749441715F8E0005DD8D6 /* rootViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +224,7 @@
 				C453A21716AC9C7D00D36616 /* recordViewController.m in Sources */,
 				C453A22416ACD35F00D36616 /* reviewViewController.m in Sources */,
 				C428DAE117069F5E006F79A4 /* CharacterCell.m in Sources */,
+				C4C749431715F8E0005DD8D6 /* rootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

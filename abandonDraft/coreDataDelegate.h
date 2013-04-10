@@ -10,4 +10,5 @@
 
 @protocol coreDataDelegate <NSObject>
 -(void)getWordsFromQueue:(id)ViewController;
+-(void)getWords:(id)ViewController;
 @end

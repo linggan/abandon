@@ -17,7 +17,8 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize recordVC;
 @synthesize reviewVC;
-
+@synthesize rootVC;
+@synthesize naviVC;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,7 +26,7 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    [self deleteData];
+    //[self deleteData];
     [self parseWords];
     //[self readDataForObject:@"Word"];
     //[self readDataForObject:@"Queue"];
@@ -36,9 +37,13 @@
     [self setReviewVC:[[reviewViewController alloc]init]];
     [[self reviewVC] setDataDelegate:self];
     
-    [_window addSubview:[recordVC view]];
-    //[_window addSubview:[reviewVC view]];
-
+    [self setRootVC:[[rootViewController alloc]init]];
+    [[self rootVC] setDelegate:self];
+    
+    [self setNaviVC:[[UINavigationController alloc]initWithRootViewController:rootVC]];
+    
+    [_window addSubview:[naviVC view]];
+    ;
     return YES;
 }
 
@@ -301,14 +306,13 @@
 
 -(NSArray *)readDataForObject: (NSString *)objectName{
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *wordEntity = [NSEntityDescription entityForName:objectName inManagedObjectContext:context];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]init];
-    [fetchRequest setEntity:wordEntity];
-    
+    NSEntityDescription *objectEntity = [NSEntityDescription entityForName:objectName inManagedObjectContext:context];
+    [fetchRequest setEntity:objectEntity];
     NSArray *wordList = [[NSArray alloc]init];
-    wordList = [context executeFetchRequest:fetchRequest error:nil];
     
     if ([objectName isEqualToString:@"Word"]){
+    wordList = [context executeFetchRequest:fetchRequest error:nil];
         id word;
         for (word in wordList){
             NSLog(@"Word: %@, %@, %@", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"]);
@@ -327,7 +331,6 @@
          }
         wordList = [wordSet allObjects];
     }
-    //NSLog(@"this is the %@", wordList);
 
     return wordList;
 }
@@ -352,6 +355,11 @@
 
 -(void)getWordsFromQueue:(id)ViewController{
     NSArray *wordList = [self readDataForObject:@"Queue"];
+    [ViewController setWordList:wordList];
+}
+
+-(void)getWords:(id)ViewController{
+    NSArray *wordList = [self readDataForObject:@"Word"];
     [ViewController setWordList:wordList];
 }
 
@@ -396,4 +404,17 @@
     [self saveContext];
 
 }
+
+-(void)callNewScreen:(NSString *)screenName{
+    if ([screenName isEqualToString:@"record"]){
+        [naviVC pushViewController:recordVC animated:TRUE];
+    }
+    if ([screenName isEqualToString:@"review"]){
+        [naviVC pushViewController:reviewVC animated:TRUE];
+    }
+    if ([screenName isEqualToString:@"practice"]){
+        [naviVC pushViewController:reviewVC animated:TRUE];
+    }
+}
+
 @end

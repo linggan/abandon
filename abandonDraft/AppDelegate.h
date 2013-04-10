@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "recordViewController.h"
 #import "reviewViewController.h"
+#import "rootViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate, coreDataDelegate, recordViewControllerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, coreDataDelegate, recordViewControllerDelegate, rootViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
@@ -20,6 +21,9 @@
 
 @property (nonatomic, retain) recordViewController *recordVC;
 @property (nonatomic, retain) reviewViewController *reviewVC;
+@property (nonatomic, retain) rootViewController *rootVC;
+@property (nonatomic, retain) UINavigationController *naviVC;
+
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;

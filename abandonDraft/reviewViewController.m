@@ -18,7 +18,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getWordsFromQueue:self];
+    [self getWords:self];
     
     UITableView *tableView = (id)[self.view viewWithTag:1];
     [tableView registerClass:[CharacterCell class] forCellReuseIdentifier:CellTableIdentifier];
@@ -74,8 +74,8 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
 }
 
 
--(void)getWordsFromQueue:(id)ViewController{
-    [[self dataDelegate] getWordsFromQueue:self];
+-(void)getWords:(id)ViewController{
+    [[self dataDelegate] getWords:self];
 }
 
 

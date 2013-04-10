@@ -75,7 +75,7 @@
     }
 }
 
--(void)playButton:(id)selector{
+-(IBAction)playButton:(id)sender{
     NSError *err;
     AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:recording error:&err];
     [player play];
