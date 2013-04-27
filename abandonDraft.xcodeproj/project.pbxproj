@@ -26,6 +26,9 @@
 		C453A21816AC9C7D00D36616 /* recordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A21616AC9C7D00D36616 /* recordViewController.xib */; };
 		C453A22416ACD35F00D36616 /* reviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C453A22216ACD35E00D36616 /* reviewViewController.m */; };
 		C453A22516ACD35F00D36616 /* reviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C453A22316ACD35E00D36616 /* reviewViewController.xib */; };
+		C492233D1723811F00D26DD3 /* reviewTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C492233B1723811F00D26DD3 /* reviewTileViewController.m */; };
+		C492233E1723811F00D26DD3 /* reviewTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C492233C1723811F00D26DD3 /* reviewTileViewController.xib */; };
+		C49223421723818A00D26DD3 /* CharacterTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C49223411723818A00D26DD3 /* CharacterTile.m */; };
 		C4C749431715F8E0005DD8D6 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C749411715F8E0005DD8D6 /* rootViewController.m */; };
 		C4C749441715F8E0005DD8D6 /* rootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C749421715F8E0005DD8D6 /* rootViewController.xib */; };
 /* End PBXBuildFile section */
@@ -58,6 +61,11 @@
 		C453A22116ACD35E00D36616 /* reviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewViewController.h; sourceTree = "<group>"; };
 		C453A22216ACD35E00D36616 /* reviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewViewController.m; sourceTree = "<group>"; };
 		C453A22316ACD35E00D36616 /* reviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reviewViewController.xib; sourceTree = "<group>"; };
+		C492233A1723811F00D26DD3 /* reviewTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewTileViewController.h; sourceTree = "<group>"; };
+		C492233B1723811F00D26DD3 /* reviewTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewTileViewController.m; sourceTree = "<group>"; };
+		C492233C1723811F00D26DD3 /* reviewTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reviewTileViewController.xib; sourceTree = "<group>"; };
+		C49223401723818A00D26DD3 /* CharacterTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTile.h; sourceTree = "<group>"; };
+		C49223411723818A00D26DD3 /* CharacterTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTile.m; sourceTree = "<group>"; };
 		C4C749401715F8E0005DD8D6 /* rootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootViewController.h; sourceTree = "<group>"; };
 		C4C749411715F8E0005DD8D6 /* rootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootViewController.m; sourceTree = "<group>"; };
 		C4C749421715F8E0005DD8D6 /* rootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = rootViewController.xib; sourceTree = "<group>"; };
@@ -125,6 +133,11 @@
 				C453A22316ACD35E00D36616 /* reviewViewController.xib */,
 				C428DADF17069F5E006F79A4 /* CharacterCell.h */,
 				C428DAE017069F5E006F79A4 /* CharacterCell.m */,
+				C492233A1723811F00D26DD3 /* reviewTileViewController.h */,
+				C492233B1723811F00D26DD3 /* reviewTileViewController.m */,
+				C492233C1723811F00D26DD3 /* reviewTileViewController.xib */,
+				C49223401723818A00D26DD3 /* CharacterTile.h */,
+				C49223411723818A00D26DD3 /* CharacterTile.m */,
 				C453A20716AB8F8F00D36616 /* abandonDraft.xcdatamodeld */,
 				C444ADB616FA694700474BF2 /* char.txt */,
 				C453A20F16AC9ADA00D36616 /* dict.txt */,
@@ -208,6 +221,7 @@
 				C453A22516ACD35F00D36616 /* reviewViewController.xib in Resources */,
 				C444ADB716FA694700474BF2 /* char.txt in Resources */,
 				C4C749441715F8E0005DD8D6 /* rootViewController.xib in Resources */,
+				C492233E1723811F00D26DD3 /* reviewTileViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +239,8 @@
 				C453A22416ACD35F00D36616 /* reviewViewController.m in Sources */,
 				C428DAE117069F5E006F79A4 /* CharacterCell.m in Sources */,
 				C4C749431715F8E0005DD8D6 /* rootViewController.m in Sources */,
+				C492233D1723811F00D26DD3 /* reviewTileViewController.m in Sources */,
+				C49223421723818A00D26DD3 /* CharacterTile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

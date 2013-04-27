@@ -19,6 +19,7 @@
 @synthesize reviewVC;
 @synthesize rootVC;
 @synthesize naviVC;
+@synthesize tileVC;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -28,7 +29,7 @@
     [self.window makeKeyAndVisible];
     //[self deleteData];
     [self parseWords];
-    //[self readDataForObject:@"Word"];
+    [self readDataForObject:@"Word"];
     //[self readDataForObject:@"Queue"];
     
     [self setRecordVC:[[recordViewController alloc]init]];
@@ -39,6 +40,12 @@
     
     [self setRootVC:[[rootViewController alloc]init]];
     [[self rootVC] setDelegate:self];
+
+    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    [flowLayout setItemSize:CGSizeMake(200, 140)];
+    [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [self setTileVC:[[reviewTileViewController alloc]initWithCollectionViewLayout:flowLayout]];
+    [[self tileVC] setDataDelegate:self];
     
     [self setNaviVC:[[UINavigationController alloc]initWithRootViewController:rootVC]];
     
@@ -315,7 +322,7 @@
     wordList = [context executeFetchRequest:fetchRequest error:nil];
         id word;
         for (word in wordList){
-            NSLog(@"Word: %@, %@, %@", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"]);
+            NSLog(@"Word: %@, %@, %@, \n%@\n", [word valueForKey:@"chinese"], [word valueForKey:@"pinyin"], [word valueForKey:@"english"], [word valueForKey:@"chineseRecording"]);
         }
     }
     
@@ -413,7 +420,7 @@
         [naviVC pushViewController:reviewVC animated:TRUE];
     }
     if ([screenName isEqualToString:@"practice"]){
-        [naviVC pushViewController:reviewVC animated:TRUE];
+        [naviVC pushViewController:tileVC animated:TRUE];
     }
 }
 

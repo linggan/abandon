@@ -15,8 +15,9 @@
 @property (copy, nonatomic) NSString *english;
 @property (copy, nonatomic) NSURL *recording;
 @property (nonatomic, retain) UIButton *playButton;
+@property (strong, nonatomic) AVAudioPlayer *player;
 
--(void)playRecording:(id)selector;
+-(void)playRecording;
 
 
 @end

@@ -22,6 +22,7 @@
     AVAudioSession *session = [AVAudioSession sharedInstance];
     NSError *sessionError;
     [session setCategory:AVAudioSessionCategoryRecord error:&sessionError];
+    [session setActive:YES error:nil];
     
     if(session == nil)
         NSLog(@"Error creating session: %@", [sessionError description]);
@@ -31,6 +32,16 @@
     [self setTimesPressed:0];
     [self setCurrentIndex:0];
     [self getWordsFromQueue:self];
+    
+    if ([wordList count]<1){
+        [[[UIAlertView alloc]
+          initWithTitle:@"No words"
+          message:@"Heya.  Doesn't seem like you have any words to record."
+          delegate:self
+          cancelButtonTitle:@"Ok"
+          otherButtonTitles: nil] show];
+    }
+
 }
 
         
@@ -39,7 +50,7 @@
 
 - (IBAction)Record:(id)sender{
     NSURL *url;
-    NSString *URLString;
+    NSString *URLString;    
     
     if (currentIndex<[wordList count]){
         NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -74,10 +85,11 @@
                 [recordBtn setTitle:@"Chinese" forState:UIControlStateNormal];
                 break;
             case 1:
+                
                 /*
                 url = [NSURL fileURLWithPath:[documentPath stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]]];
                 [self storeAAC:url ForWord:hanzi InLanguage:@"English"];*/
-                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"%@.aac(eng)", hanzi]];
+                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]];
                 url = [NSURL fileURLWithPath:URLString];
                 [self storeAAC: URLString ForWord:hanzi InLanguage:@"English"];
 

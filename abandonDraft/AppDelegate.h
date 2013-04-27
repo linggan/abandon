@@ -10,6 +10,7 @@
 #import "recordViewController.h"
 #import "reviewViewController.h"
 #import "rootViewController.h"
+#import "reviewTileViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, coreDataDelegate, recordViewControllerDelegate, rootViewControllerDelegate>
 
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) recordViewController *recordVC;
 @property (nonatomic, retain) reviewViewController *reviewVC;
 @property (nonatomic, retain) rootViewController *rootVC;
+@property (nonatomic, retain) reviewTileViewController *tileVC;
 @property (nonatomic, retain) UINavigationController *naviVC;
 
 

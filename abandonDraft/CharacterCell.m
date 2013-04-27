@@ -14,12 +14,19 @@
     UILabel *_englishValue;
 }
 
-@synthesize playButton, recording;
+@synthesize playButton, recording, player;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        [[AVAudioSession sharedInstance] setDelegate: self];
+        NSError *setCategoryError = nil;
+        [[AVAudioSession sharedInstance] setCategory: AVAudioSessionCategoryPlayback error: &setCategoryError];
+        if (setCategoryError)
+            NSLog(@"Error setting category! %@", setCategoryError);
+    
         CGRect characterValueRect = CGRectMake(0,0, 44, 44);
         _characterValue = [[UILabel alloc]initWithFrame:characterValueRect];
         [_characterValue setFont:[UIFont fontWithName:@"Gill Sans" size:16]];
@@ -35,13 +42,14 @@
         [_englishValue setFont:[UIFont fontWithName:@"Gill Sans" size:16]];
         [[self contentView] addSubview:_englishValue];
         
+        /*
         CGRect playRect = CGRectMake(230, 0, 50, 22);
         playButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [playButton setFrame:playRect];
         [playButton setTitle:@"play" forState:UIControlStateNormal];
         [[self contentView] addSubview:playButton];
-        [playButton addTarget:self action:@selector(playRecording) forControlEvents:UIControlEventTouchDown];
-
+        [playButton addTarget:self action:@selector(playRecoding) forControlEvents:UIControlEventTouchDown];
+         */
     }
     return self;
 }
@@ -75,10 +83,13 @@
     }
 }
 
--(IBAction)playButton:(id)sender{
+-(void)playRecoding{
     NSError *err;
-    AVAudioPlayer *player = [[AVAudioPlayer alloc]initWithContentsOfURL:recording error:&err];
+    NSLog(@"%@", recording);
+    player = [[AVAudioPlayer alloc]initWithContentsOfURL:recording error:&err];
+    [player setDelegate:self];
     [player play];
+
 }
 
 

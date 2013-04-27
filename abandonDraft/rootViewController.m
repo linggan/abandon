@@ -30,7 +30,7 @@
 }
 
 - (IBAction)getPracticeView:(id)sender {
-    [self getPracticeView:@"practice"];
+    [self callNewScreen:@"practice"];
 }
 
 -(void)callNewScreen: (NSString *)screenName{

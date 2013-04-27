@@ -14,7 +14,6 @@
 
 static NSString *CellTableIdentifier = @"CellTableIdentifier";
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,12 +22,6 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     UITableView *tableView = (id)[self.view viewWithTag:1];
     [tableView registerClass:[CharacterCell class] forCellReuseIdentifier:CellTableIdentifier];
     self.clearsSelectionOnViewWillAppear = NO;
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - Table view data source
@@ -45,7 +38,7 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     {
         cell = [[CharacterCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellTableIdentifier];
     }
-    
+ 
     NSInteger currentIndex = [indexPath row];
     NSString *hanzi = [[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"];
     NSString *pinyin = [[wordList objectAtIndex:currentIndex] valueForKey:@"pinyin"];
@@ -54,8 +47,9 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     [cell setCharacter:hanzi];
     [cell setPinyin:pinyin];
     [cell setEnglish:english];
-    [cell setRecording:[NSURL URLWithString:[[wordList objectAtIndex:currentIndex] valueForKey:@"chineseRecording"]]];
-        
+    [cell setRecording:[NSURL fileURLWithPath:[[wordList objectAtIndex:currentIndex] valueForKey:@"chineseRecording"]]];
+    NSLog(@"review is %@",[NSURL fileURLWithPath:[[wordList objectAtIndex:currentIndex] valueForKey:@"chineseRecording"]] );
+    
     return cell;
 }
 
