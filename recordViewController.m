@@ -55,13 +55,15 @@
     if (currentIndex<[wordList count]){
         NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentPath = [searchPaths objectAtIndex:0];
+        
+        NSString *output = [[NSHomeDirectory() stringByAppendingString:@"/Documents/"] stringByAppendingString:@"output.m4a"];
         NSString *hanzi = [[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"];
         NSString *pinyin = [[wordList objectAtIndex:currentIndex] valueForKey:@"pinyin"];
         NSString *english = [[wordList objectAtIndex:currentIndex] valueForKey:@"english"];
 
         switch (timesPressed) {
             case 0:
-                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"%@.aac", hanzi]];
+                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"/%@.aac", hanzi]];
                 url = [NSURL fileURLWithPath:URLString];
                 [self storeAAC: URLString ForWord:hanzi InLanguage:@"Chinese"];
                 
@@ -89,7 +91,7 @@
                 /*
                 url = [NSURL fileURLWithPath:[documentPath stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]]];
                 [self storeAAC:url ForWord:hanzi InLanguage:@"English"];*/
-                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]];
+                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"/%@(eng).aac", hanzi]];
                 url = [NSURL fileURLWithPath:URLString];
                 [self storeAAC: URLString ForWord:hanzi InLanguage:@"English"];
 

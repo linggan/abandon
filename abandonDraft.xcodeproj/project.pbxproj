@@ -10,6 +10,27 @@
 		C428DAE117069F5E006F79A4 /* CharacterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C428DAE017069F5E006F79A4 /* CharacterCell.m */; };
 		C444ADB716FA694700474BF2 /* char.txt in Resources */ = {isa = PBXBuildFile; fileRef = C444ADB616FA694700474BF2 /* char.txt */; };
 		C444ADBD16FAA8A300474BF2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C444ADBC16FAA8A300474BF2 /* AVFoundation.framework */; };
+		C451AD70172B784F00743863 /* NSAttributedString+MGTrim.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD38172B784F00743863 /* NSAttributedString+MGTrim.m */; };
+		C451AD71172B784F00743863 /* NSObject+MGEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD3A172B784F00743863 /* NSObject+MGEvents.m */; };
+		C451AD72172B784F00743863 /* UIColor+MGExpanded.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD3C172B784F00743863 /* UIColor+MGExpanded.m */; };
+		C451AD73172B784F00743863 /* UIControl+MGEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD3E172B784F00743863 /* UIControl+MGEvents.m */; };
+		C451AD74172B784F00743863 /* UIResponder+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD40172B784F00743863 /* UIResponder+FirstResponder.m */; };
+		C451AD75172B784F00743863 /* UIView+MGEasyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD42172B784F00743863 /* UIView+MGEasyFrame.m */; };
+		C451AD76172B784F00743863 /* MGBlockWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD45172B784F00743863 /* MGBlockWrapper.m */; };
+		C451AD77172B784F00743863 /* MGBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD47172B784F00743863 /* MGBox.m */; };
+		C451AD78172B784F00743863 /* MGButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD49172B784F00743863 /* MGButton.m */; };
+		C451AD79172B784F00743863 /* MGLayoutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD4C172B784F00743863 /* MGLayoutManager.m */; };
+		C451AD7A172B784F00743863 /* MGLine.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD4E172B784F00743863 /* MGLine.m */; };
+		C451AD7B172B784F00743863 /* MGLineStyled.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD50172B784F00743863 /* MGLineStyled.m */; };
+		C451AD7C172B784F00743863 /* MGMushParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD52172B784F00743863 /* MGMushParser.m */; };
+		C451AD7D172B784F00743863 /* MGScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD54172B784F00743863 /* MGScrollView.m */; };
+		C451AD7E172B784F00743863 /* MGTableBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD56172B784F00743863 /* MGTableBox.m */; };
+		C451AD7F172B784F00743863 /* MGTableBoxStyled.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD58172B784F00743863 /* MGTableBoxStyled.m */; };
+		C451AD8F172B7E4700743863 /* CharacterGridBox.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD8E172B7E4700743863 /* CharacterGridBox.m */; };
+		C451AD93172B7F5A00743863 /* ReviewGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C451AD91172B7F5A00743863 /* ReviewGridViewController.m */; };
+		C451AD94172B7F5A00743863 /* ReviewGridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C451AD92172B7F5A00743863 /* ReviewGridViewController.xib */; };
+		C451AD96172B8F5A00743863 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C451AD95172B8F5A00743863 /* CoreText.framework */; };
+		C451AD98172B8F6000743863 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C451AD97172B8F6000743863 /* QuartzCore.framework */; };
 		C453A1EE16AB8F8F00D36616 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C453A1ED16AB8F8F00D36616 /* UIKit.framework */; };
 		C453A1F016AB8F8F00D36616 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C453A1EF16AB8F8F00D36616 /* Foundation.framework */; };
 		C453A1F216AB8F8F00D36616 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C453A1F116AB8F8F00D36616 /* CoreGraphics.framework */; };
@@ -31,14 +52,60 @@
 		C49223421723818A00D26DD3 /* CharacterTile.m in Sources */ = {isa = PBXBuildFile; fileRef = C49223411723818A00D26DD3 /* CharacterTile.m */; };
 		C4C749431715F8E0005DD8D6 /* rootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4C749411715F8E0005DD8D6 /* rootViewController.m */; };
 		C4C749441715F8E0005DD8D6 /* rootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C749421715F8E0005DD8D6 /* rootViewController.xib */; };
+		C4CA2B86172CDFE300AF1517 /* VocabExportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CA2B84172CDFE300AF1517 /* VocabExportViewController.m */; };
+		C4CA2B87172CDFE300AF1517 /* VocabExportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CA2B85172CDFE300AF1517 /* VocabExportViewController.xib */; };
+		C4CA2B8C172CE49F00AF1517 /* VocabInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4CA2B8A172CE49F00AF1517 /* VocabInfoViewController.m */; };
+		C4CA2B8D172CE49F00AF1517 /* VocabInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CA2B8B172CE49F00AF1517 /* VocabInfoViewController.xib */; };
+		C4CA2B8F172DE62500AF1517 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CA2B8E172DE62400AF1517 /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C428DAD817068BB1006F79A4 /* coreDataDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = coreDataDelegate.h; sourceTree = "<group>"; };
-		C428DADF17069F5E006F79A4 /* CharacterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterCell.h; sourceTree = "<group>"; };
-		C428DAE017069F5E006F79A4 /* CharacterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterCell.m; sourceTree = "<group>"; };
+		C428DADF17069F5E006F79A4 /* CharacterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterCell.h; path = abandonDraft/CharacterCell.h; sourceTree = "<group>"; };
+		C428DAE017069F5E006F79A4 /* CharacterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterCell.m; path = abandonDraft/CharacterCell.m; sourceTree = "<group>"; };
 		C444ADB616FA694700474BF2 /* char.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = char.txt; sourceTree = "<group>"; };
 		C444ADBC16FAA8A300474BF2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C451AD37172B784F00743863 /* NSAttributedString+MGTrim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+MGTrim.h"; sourceTree = "<group>"; };
+		C451AD38172B784F00743863 /* NSAttributedString+MGTrim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+MGTrim.m"; sourceTree = "<group>"; };
+		C451AD39172B784F00743863 /* NSObject+MGEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MGEvents.h"; sourceTree = "<group>"; };
+		C451AD3A172B784F00743863 /* NSObject+MGEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MGEvents.m"; sourceTree = "<group>"; };
+		C451AD3B172B784F00743863 /* UIColor+MGExpanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MGExpanded.h"; sourceTree = "<group>"; };
+		C451AD3C172B784F00743863 /* UIColor+MGExpanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MGExpanded.m"; sourceTree = "<group>"; };
+		C451AD3D172B784F00743863 /* UIControl+MGEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+MGEvents.h"; sourceTree = "<group>"; };
+		C451AD3E172B784F00743863 /* UIControl+MGEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+MGEvents.m"; sourceTree = "<group>"; };
+		C451AD3F172B784F00743863 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
+		C451AD40172B784F00743863 /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
+		C451AD41172B784F00743863 /* UIView+MGEasyFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MGEasyFrame.h"; sourceTree = "<group>"; };
+		C451AD42172B784F00743863 /* UIView+MGEasyFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MGEasyFrame.m"; sourceTree = "<group>"; };
+		C451AD43172B784F00743863 /* MGBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBase.h; sourceTree = "<group>"; };
+		C451AD44172B784F00743863 /* MGBlockWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBlockWrapper.h; sourceTree = "<group>"; };
+		C451AD45172B784F00743863 /* MGBlockWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBlockWrapper.m; sourceTree = "<group>"; };
+		C451AD46172B784F00743863 /* MGBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGBox.h; sourceTree = "<group>"; };
+		C451AD47172B784F00743863 /* MGBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGBox.m; sourceTree = "<group>"; };
+		C451AD48172B784F00743863 /* MGButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGButton.h; sourceTree = "<group>"; };
+		C451AD49172B784F00743863 /* MGButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGButton.m; sourceTree = "<group>"; };
+		C451AD4A172B784F00743863 /* MGLayoutBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLayoutBox.h; sourceTree = "<group>"; };
+		C451AD4B172B784F00743863 /* MGLayoutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLayoutManager.h; sourceTree = "<group>"; };
+		C451AD4C172B784F00743863 /* MGLayoutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLayoutManager.m; sourceTree = "<group>"; };
+		C451AD4D172B784F00743863 /* MGLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLine.h; sourceTree = "<group>"; };
+		C451AD4E172B784F00743863 /* MGLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLine.m; sourceTree = "<group>"; };
+		C451AD4F172B784F00743863 /* MGLineStyled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLineStyled.h; sourceTree = "<group>"; };
+		C451AD50172B784F00743863 /* MGLineStyled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGLineStyled.m; sourceTree = "<group>"; };
+		C451AD51172B784F00743863 /* MGMushParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGMushParser.h; sourceTree = "<group>"; };
+		C451AD52172B784F00743863 /* MGMushParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGMushParser.m; sourceTree = "<group>"; };
+		C451AD53172B784F00743863 /* MGScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGScrollView.h; sourceTree = "<group>"; };
+		C451AD54172B784F00743863 /* MGScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGScrollView.m; sourceTree = "<group>"; };
+		C451AD55172B784F00743863 /* MGTableBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTableBox.h; sourceTree = "<group>"; };
+		C451AD56172B784F00743863 /* MGTableBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTableBox.m; sourceTree = "<group>"; };
+		C451AD57172B784F00743863 /* MGTableBoxStyled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGTableBoxStyled.h; sourceTree = "<group>"; };
+		C451AD58172B784F00743863 /* MGTableBoxStyled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGTableBoxStyled.m; sourceTree = "<group>"; };
+		C451AD8D172B7E4700743863 /* CharacterGridBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterGridBox.h; sourceTree = "<group>"; };
+		C451AD8E172B7E4700743863 /* CharacterGridBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterGridBox.m; sourceTree = "<group>"; };
+		C451AD90172B7F5A00743863 /* ReviewGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewGridViewController.h; sourceTree = "<group>"; };
+		C451AD91172B7F5A00743863 /* ReviewGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewGridViewController.m; sourceTree = "<group>"; };
+		C451AD92172B7F5A00743863 /* ReviewGridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReviewGridViewController.xib; sourceTree = "<group>"; };
+		C451AD95172B8F5A00743863 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		C451AD97172B8F6000743863 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C453A1E916AB8F8F00D36616 /* abandonDraft.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = abandonDraft.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C453A1ED16AB8F8F00D36616 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C453A1EF16AB8F8F00D36616 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,20 +122,27 @@
 		C453A20516AB8F8F00D36616 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C453A20816AB8F8F00D36616 /* abandonDraft.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = abandonDraft.xcdatamodel; sourceTree = "<group>"; };
 		C453A20F16AC9ADA00D36616 /* dict.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dict.txt; sourceTree = "<group>"; };
-		C453A21416AC9C7D00D36616 /* recordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = recordViewController.h; path = ../recordViewController.h; sourceTree = "<group>"; };
-		C453A21516AC9C7D00D36616 /* recordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = recordViewController.m; path = ../recordViewController.m; sourceTree = "<group>"; };
-		C453A21616AC9C7D00D36616 /* recordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = recordViewController.xib; path = ../recordViewController.xib; sourceTree = "<group>"; };
-		C453A22116ACD35E00D36616 /* reviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewViewController.h; sourceTree = "<group>"; };
-		C453A22216ACD35E00D36616 /* reviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewViewController.m; sourceTree = "<group>"; };
-		C453A22316ACD35E00D36616 /* reviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reviewViewController.xib; sourceTree = "<group>"; };
-		C492233A1723811F00D26DD3 /* reviewTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reviewTileViewController.h; sourceTree = "<group>"; };
-		C492233B1723811F00D26DD3 /* reviewTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = reviewTileViewController.m; sourceTree = "<group>"; };
-		C492233C1723811F00D26DD3 /* reviewTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = reviewTileViewController.xib; sourceTree = "<group>"; };
-		C49223401723818A00D26DD3 /* CharacterTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterTile.h; sourceTree = "<group>"; };
-		C49223411723818A00D26DD3 /* CharacterTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterTile.m; sourceTree = "<group>"; };
-		C4C749401715F8E0005DD8D6 /* rootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rootViewController.h; sourceTree = "<group>"; };
-		C4C749411715F8E0005DD8D6 /* rootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rootViewController.m; sourceTree = "<group>"; };
-		C4C749421715F8E0005DD8D6 /* rootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = rootViewController.xib; sourceTree = "<group>"; };
+		C453A21416AC9C7D00D36616 /* recordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recordViewController.h; sourceTree = "<group>"; };
+		C453A21516AC9C7D00D36616 /* recordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recordViewController.m; sourceTree = "<group>"; };
+		C453A21616AC9C7D00D36616 /* recordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recordViewController.xib; sourceTree = "<group>"; };
+		C453A22116ACD35E00D36616 /* reviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = reviewViewController.h; path = abandonDraft/reviewViewController.h; sourceTree = "<group>"; };
+		C453A22216ACD35E00D36616 /* reviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = reviewViewController.m; path = abandonDraft/reviewViewController.m; sourceTree = "<group>"; };
+		C453A22316ACD35E00D36616 /* reviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = reviewViewController.xib; path = abandonDraft/reviewViewController.xib; sourceTree = "<group>"; };
+		C492233A1723811F00D26DD3 /* reviewTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = reviewTileViewController.h; path = abandonDraft/reviewTileViewController.h; sourceTree = "<group>"; };
+		C492233B1723811F00D26DD3 /* reviewTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = reviewTileViewController.m; path = abandonDraft/reviewTileViewController.m; sourceTree = "<group>"; };
+		C492233C1723811F00D26DD3 /* reviewTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = reviewTileViewController.xib; path = abandonDraft/reviewTileViewController.xib; sourceTree = "<group>"; };
+		C49223401723818A00D26DD3 /* CharacterTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterTile.h; path = abandonDraft/CharacterTile.h; sourceTree = "<group>"; };
+		C49223411723818A00D26DD3 /* CharacterTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterTile.m; path = abandonDraft/CharacterTile.m; sourceTree = "<group>"; };
+		C4C749401715F8E0005DD8D6 /* rootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rootViewController.h; path = abandonDraft/rootViewController.h; sourceTree = "<group>"; };
+		C4C749411715F8E0005DD8D6 /* rootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rootViewController.m; path = abandonDraft/rootViewController.m; sourceTree = "<group>"; };
+		C4C749421715F8E0005DD8D6 /* rootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = rootViewController.xib; path = abandonDraft/rootViewController.xib; sourceTree = "<group>"; };
+		C4CA2B83172CDFE300AF1517 /* VocabExportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VocabExportViewController.h; path = abandonDraft/VocabExportViewController.h; sourceTree = "<group>"; };
+		C4CA2B84172CDFE300AF1517 /* VocabExportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VocabExportViewController.m; path = abandonDraft/VocabExportViewController.m; sourceTree = "<group>"; };
+		C4CA2B85172CDFE300AF1517 /* VocabExportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VocabExportViewController.xib; path = abandonDraft/VocabExportViewController.xib; sourceTree = "<group>"; };
+		C4CA2B89172CE49F00AF1517 /* VocabInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VocabInfoViewController.h; sourceTree = "<group>"; };
+		C4CA2B8A172CE49F00AF1517 /* VocabInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VocabInfoViewController.m; sourceTree = "<group>"; };
+		C4CA2B8B172CE49F00AF1517 /* VocabInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VocabInfoViewController.xib; sourceTree = "<group>"; };
+		C4CA2B8E172DE62400AF1517 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +150,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CA2B8F172DE62500AF1517 /* CoreMedia.framework in Frameworks */,
+				C451AD98172B8F6000743863 /* QuartzCore.framework in Frameworks */,
+				C451AD96172B8F5A00743863 /* CoreText.framework in Frameworks */,
 				C444ADBD16FAA8A300474BF2 /* AVFoundation.framework in Frameworks */,
 				C453A1EE16AB8F8F00D36616 /* UIKit.framework in Frameworks */,
 				C453A1F016AB8F8F00D36616 /* Foundation.framework in Frameworks */,
@@ -87,9 +164,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C451AD12172B77D500743863 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C4C749401715F8E0005DD8D6 /* rootViewController.h */,
+				C4C749411715F8E0005DD8D6 /* rootViewController.m */,
+				C4C749421715F8E0005DD8D6 /* rootViewController.xib */,
+				C453A21416AC9C7D00D36616 /* recordViewController.h */,
+				C453A21516AC9C7D00D36616 /* recordViewController.m */,
+				C453A21616AC9C7D00D36616 /* recordViewController.xib */,
+				C453A22116ACD35E00D36616 /* reviewViewController.h */,
+				C453A22216ACD35E00D36616 /* reviewViewController.m */,
+				C453A22316ACD35E00D36616 /* reviewViewController.xib */,
+				C492233A1723811F00D26DD3 /* reviewTileViewController.h */,
+				C492233B1723811F00D26DD3 /* reviewTileViewController.m */,
+				C492233C1723811F00D26DD3 /* reviewTileViewController.xib */,
+				C451AD90172B7F5A00743863 /* ReviewGridViewController.h */,
+				C451AD91172B7F5A00743863 /* ReviewGridViewController.m */,
+				C451AD92172B7F5A00743863 /* ReviewGridViewController.xib */,
+				C4CA2B83172CDFE300AF1517 /* VocabExportViewController.h */,
+				C4CA2B84172CDFE300AF1517 /* VocabExportViewController.m */,
+				C4CA2B85172CDFE300AF1517 /* VocabExportViewController.xib */,
+				C4CA2B89172CE49F00AF1517 /* VocabInfoViewController.h */,
+				C4CA2B8A172CE49F00AF1517 /* VocabInfoViewController.m */,
+				C4CA2B8B172CE49F00AF1517 /* VocabInfoViewController.xib */,
+			);
+			name = ViewControllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C451AD14172B77FA00743863 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				C428DADF17069F5E006F79A4 /* CharacterCell.h */,
+				C428DAE017069F5E006F79A4 /* CharacterCell.m */,
+				C49223401723818A00D26DD3 /* CharacterTile.h */,
+				C49223411723818A00D26DD3 /* CharacterTile.m */,
+				C451AD8D172B7E4700743863 /* CharacterGridBox.h */,
+				C451AD8E172B7E4700743863 /* CharacterGridBox.m */,
+			);
+			name = CustomCells;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		C451AD35172B784F00743863 /* MGBox */ = {
+			isa = PBXGroup;
+			children = (
+				C451AD36172B784F00743863 /* Categories */,
+				C451AD43172B784F00743863 /* MGBase.h */,
+				C451AD44172B784F00743863 /* MGBlockWrapper.h */,
+				C451AD45172B784F00743863 /* MGBlockWrapper.m */,
+				C451AD46172B784F00743863 /* MGBox.h */,
+				C451AD47172B784F00743863 /* MGBox.m */,
+				C451AD48172B784F00743863 /* MGButton.h */,
+				C451AD49172B784F00743863 /* MGButton.m */,
+				C451AD4A172B784F00743863 /* MGLayoutBox.h */,
+				C451AD4B172B784F00743863 /* MGLayoutManager.h */,
+				C451AD4C172B784F00743863 /* MGLayoutManager.m */,
+				C451AD4D172B784F00743863 /* MGLine.h */,
+				C451AD4E172B784F00743863 /* MGLine.m */,
+				C451AD4F172B784F00743863 /* MGLineStyled.h */,
+				C451AD50172B784F00743863 /* MGLineStyled.m */,
+				C451AD51172B784F00743863 /* MGMushParser.h */,
+				C451AD52172B784F00743863 /* MGMushParser.m */,
+				C451AD53172B784F00743863 /* MGScrollView.h */,
+				C451AD54172B784F00743863 /* MGScrollView.m */,
+				C451AD55172B784F00743863 /* MGTableBox.h */,
+				C451AD56172B784F00743863 /* MGTableBox.m */,
+				C451AD57172B784F00743863 /* MGTableBoxStyled.h */,
+				C451AD58172B784F00743863 /* MGTableBoxStyled.m */,
+			);
+			name = MGBox;
+			path = abandonDraft/MGBox2/MGBox;
+			sourceTree = "<group>";
+		};
+		C451AD36172B784F00743863 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C451AD37172B784F00743863 /* NSAttributedString+MGTrim.h */,
+				C451AD38172B784F00743863 /* NSAttributedString+MGTrim.m */,
+				C451AD39172B784F00743863 /* NSObject+MGEvents.h */,
+				C451AD3A172B784F00743863 /* NSObject+MGEvents.m */,
+				C451AD3B172B784F00743863 /* UIColor+MGExpanded.h */,
+				C451AD3C172B784F00743863 /* UIColor+MGExpanded.m */,
+				C451AD3D172B784F00743863 /* UIControl+MGEvents.h */,
+				C451AD3E172B784F00743863 /* UIControl+MGEvents.m */,
+				C451AD3F172B784F00743863 /* UIResponder+FirstResponder.h */,
+				C451AD40172B784F00743863 /* UIResponder+FirstResponder.m */,
+				C451AD41172B784F00743863 /* UIView+MGEasyFrame.h */,
+				C451AD42172B784F00743863 /* UIView+MGEasyFrame.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		C451AD84172B78A100743863 /* ExternalLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				C451AD35172B784F00743863 /* MGBox */,
+			);
+			name = ExternalLibraries;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		C453A1DE16AB8F8F00D36616 = {
 			isa = PBXGroup;
 			children = (
+				C4CA2B8E172DE62400AF1517 /* CoreMedia.framework */,
+				C451AD97172B8F6000743863 /* QuartzCore.framework */,
+				C451AD95172B8F5A00743863 /* CoreText.framework */,
 				C444ADBC16FAA8A300474BF2 /* AVFoundation.framework */,
 				C453A1F516AB8F8F00D36616 /* abandonDraft */,
 				C453A1EC16AB8F8F00D36616 /* Frameworks */,
@@ -119,25 +301,12 @@
 		C453A1F516AB8F8F00D36616 /* abandonDraft */ = {
 			isa = PBXGroup;
 			children = (
+				C451AD84172B78A100743863 /* ExternalLibraries */,
+				C451AD14172B77FA00743863 /* CustomCells */,
+				C451AD12172B77D500743863 /* ViewControllers */,
 				C453A1FE16AB8F8F00D36616 /* AppDelegate.h */,
 				C453A1FF16AB8F8F00D36616 /* AppDelegate.m */,
-				C4C749401715F8E0005DD8D6 /* rootViewController.h */,
-				C4C749411715F8E0005DD8D6 /* rootViewController.m */,
-				C4C749421715F8E0005DD8D6 /* rootViewController.xib */,
 				C428DAD817068BB1006F79A4 /* coreDataDelegate.h */,
-				C453A21416AC9C7D00D36616 /* recordViewController.h */,
-				C453A21516AC9C7D00D36616 /* recordViewController.m */,
-				C453A21616AC9C7D00D36616 /* recordViewController.xib */,
-				C453A22116ACD35E00D36616 /* reviewViewController.h */,
-				C453A22216ACD35E00D36616 /* reviewViewController.m */,
-				C453A22316ACD35E00D36616 /* reviewViewController.xib */,
-				C428DADF17069F5E006F79A4 /* CharacterCell.h */,
-				C428DAE017069F5E006F79A4 /* CharacterCell.m */,
-				C492233A1723811F00D26DD3 /* reviewTileViewController.h */,
-				C492233B1723811F00D26DD3 /* reviewTileViewController.m */,
-				C492233C1723811F00D26DD3 /* reviewTileViewController.xib */,
-				C49223401723818A00D26DD3 /* CharacterTile.h */,
-				C49223411723818A00D26DD3 /* CharacterTile.m */,
 				C453A20716AB8F8F00D36616 /* abandonDraft.xcdatamodeld */,
 				C444ADB616FA694700474BF2 /* char.txt */,
 				C453A20F16AC9ADA00D36616 /* dict.txt */,
@@ -222,6 +391,9 @@
 				C444ADB716FA694700474BF2 /* char.txt in Resources */,
 				C4C749441715F8E0005DD8D6 /* rootViewController.xib in Resources */,
 				C492233E1723811F00D26DD3 /* reviewTileViewController.xib in Resources */,
+				C451AD94172B7F5A00743863 /* ReviewGridViewController.xib in Resources */,
+				C4CA2B87172CDFE300AF1517 /* VocabExportViewController.xib in Resources */,
+				C4CA2B8D172CE49F00AF1517 /* VocabInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +413,26 @@
 				C4C749431715F8E0005DD8D6 /* rootViewController.m in Sources */,
 				C492233D1723811F00D26DD3 /* reviewTileViewController.m in Sources */,
 				C49223421723818A00D26DD3 /* CharacterTile.m in Sources */,
+				C451AD70172B784F00743863 /* NSAttributedString+MGTrim.m in Sources */,
+				C451AD71172B784F00743863 /* NSObject+MGEvents.m in Sources */,
+				C451AD72172B784F00743863 /* UIColor+MGExpanded.m in Sources */,
+				C451AD73172B784F00743863 /* UIControl+MGEvents.m in Sources */,
+				C451AD74172B784F00743863 /* UIResponder+FirstResponder.m in Sources */,
+				C451AD75172B784F00743863 /* UIView+MGEasyFrame.m in Sources */,
+				C451AD76172B784F00743863 /* MGBlockWrapper.m in Sources */,
+				C451AD77172B784F00743863 /* MGBox.m in Sources */,
+				C451AD78172B784F00743863 /* MGButton.m in Sources */,
+				C451AD79172B784F00743863 /* MGLayoutManager.m in Sources */,
+				C451AD7A172B784F00743863 /* MGLine.m in Sources */,
+				C451AD7B172B784F00743863 /* MGLineStyled.m in Sources */,
+				C451AD7C172B784F00743863 /* MGMushParser.m in Sources */,
+				C451AD7D172B784F00743863 /* MGScrollView.m in Sources */,
+				C451AD7E172B784F00743863 /* MGTableBox.m in Sources */,
+				C451AD7F172B784F00743863 /* MGTableBoxStyled.m in Sources */,
+				C451AD8F172B7E4700743863 /* CharacterGridBox.m in Sources */,
+				C451AD93172B7F5A00743863 /* ReviewGridViewController.m in Sources */,
+				C4CA2B86172CDFE300AF1517 /* VocabExportViewController.m in Sources */,
+				C4CA2B8C172CE49F00AF1517 /* VocabInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

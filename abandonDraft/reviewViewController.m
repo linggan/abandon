@@ -48,7 +48,6 @@ static NSString *CellTableIdentifier = @"CellTableIdentifier";
     [cell setPinyin:pinyin];
     [cell setEnglish:english];
     [cell setRecording:[NSURL fileURLWithPath:[[wordList objectAtIndex:currentIndex] valueForKey:@"chineseRecording"]]];
-    NSLog(@"review is %@",[NSURL fileURLWithPath:[[wordList objectAtIndex:currentIndex] valueForKey:@"chineseRecording"]] );
     
     return cell;
 }

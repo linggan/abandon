@@ -47,6 +47,9 @@
     [self setTileVC:[[reviewTileViewController alloc]initWithCollectionViewLayout:flowLayout]];
     [[self tileVC] setDataDelegate:self];
     
+    [self setGridVC:[[ReviewGridViewController alloc]init]];
+    [[self gridVC] setDataDelegate:self];
+    
     [self setNaviVC:[[UINavigationController alloc]initWithRootViewController:rootVC]];
     
     [_window addSubview:[naviVC view]];
@@ -420,7 +423,7 @@
         [naviVC pushViewController:reviewVC animated:TRUE];
     }
     if ([screenName isEqualToString:@"practice"]){
-        [naviVC pushViewController:tileVC animated:TRUE];
+        [naviVC pushViewController:_gridVC animated:TRUE];
     }
 }
 
