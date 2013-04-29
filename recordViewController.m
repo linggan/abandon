@@ -53,22 +53,22 @@
     NSString *URLString;    
     
     if (currentIndex<[wordList count]){
-        NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentPath = [searchPaths objectAtIndex:0];
+        //NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        //NSString *documentPath = [searchPaths objectAtIndex:0];
         
-        NSString *output = [[NSHomeDirectory() stringByAppendingString:@"/Documents/"] stringByAppendingString:@"output.m4a"];
         NSString *hanzi = [[wordList objectAtIndex:currentIndex] valueForKey:@"chinese"];
         NSString *pinyin = [[wordList objectAtIndex:currentIndex] valueForKey:@"pinyin"];
         NSString *english = [[wordList objectAtIndex:currentIndex] valueForKey:@"english"];
 
         switch (timesPressed) {
             case 0:
-                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"/%@.aac", hanzi]];
+                URLString = [[NSHomeDirectory() stringByAppendingString:@"/Documents/"] stringByAppendingString:[NSString stringWithFormat:@"%@.aac", hanzi]];
+                //URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"/%@.aac", hanzi]];
                 url = [NSURL fileURLWithPath:URLString];
                 [self storeAAC: URLString ForWord:hanzi InLanguage:@"Chinese"];
                 
-                NSLog(@"%@",[NSString stringWithFormat:@"%@.aac", hanzi]);
-                NSLog(@"destinationString: %@", url);
+                //NSLog(@"%@",[NSString stringWithFormat:@"%@.aac", hanzi]);
+                //NSLog(@"destinationString: %@", url);
                                 
                 [self initRecorderWithUrl:url];
                 [recorder stop];  //stop recording the word from previous index
@@ -87,18 +87,13 @@
                 [recordBtn setTitle:@"Chinese" forState:UIControlStateNormal];
                 break;
             case 1:
-                
-                /*
-                url = [NSURL fileURLWithPath:[documentPath stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]]];
-                [self storeAAC:url ForWord:hanzi InLanguage:@"English"];*/
-                URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"/%@(eng).aac", hanzi]];
+                URLString = [[NSHomeDirectory() stringByAppendingString:@"/Documents/"] stringByAppendingString:[NSString stringWithFormat:@"%@(eng).aac", hanzi]];
+                //URLString = [documentPath stringByAppendingString:[NSString stringWithFormat:@"/%@(eng).aac", hanzi]];
                 url = [NSURL fileURLWithPath:URLString];
                 [self storeAAC: URLString ForWord:hanzi InLanguage:@"English"];
-
-
                 
-                NSLog(@"%@",[NSString stringWithFormat:@"%@(eng).aac", hanzi]);
-                NSLog(@"destinationString: %@", url);
+                //NSLog(@"%@",[NSString stringWithFormat:@"%@(eng).aac", hanzi]);
+                //NSLog(@"destinationString: %@", url);
                 
                 [self initRecorderWithUrl:url];
                 [recorder stop];  //stop recording the word from previous index

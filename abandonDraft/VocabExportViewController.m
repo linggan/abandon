@@ -96,7 +96,8 @@
     NSLog(@"here are the words: %@", [_vocabList valueForKey:@"pinyin"]);
     AVMutableComposition *composition = [[AVMutableComposition alloc] init];
     
-    NSString *output = [[NSHomeDirectory() stringByAppendingString:@"/Documents/"] stringByAppendingString:@"output.m4a"];
+    NSString *output = [[NSHomeDirectory() stringByAppendingString:@"/Documents/"] stringByAppendingString:[NSString stringWithFormat:@"%@.m4a", _vocabListName]];
+    CMTime currentTrackTime = kCMTimeZero;
     
     for (id word in _vocabList){
         NSLog(@"here are the words: %@", [word valueForKey:@"pinyin"]);
@@ -104,12 +105,12 @@
         AVURLAsset *chineseTrack = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:[word valueForKey:@"chineseRecording"]] options:nil];
         AVURLAsset *englishTrack = [AVURLAsset URLAssetWithURL:[NSURL fileURLWithPath:[word valueForKey:@"englishRecording"]] options:nil];
     
-        
         AVMutableCompositionTrack *compositionTrack01 = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-        [compositionTrack01 insertTimeRange:CMTimeRangeMake(kCMTimeZero, chineseTrack.duration) ofTrack:[[chineseTrack tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
+        [compositionTrack01 insertTimeRange:CMTimeRangeMake(kCMTimeZero, chineseTrack.duration) ofTrack:[[chineseTrack tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:currentTrackTime error:nil];
         AVMutableCompositionTrack *compositionTrack02 = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid];
-        [compositionTrack02 insertTimeRange:CMTimeRangeMake(kCMTimeZero, englishTrack.duration) ofTrack:[[englishTrack tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:kCMTimeZero error:nil];
+        [compositionTrack02 insertTimeRange:CMTimeRangeMake(kCMTimeZero, englishTrack.duration) ofTrack:[[englishTrack tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0] atTime:CMTimeAdd(currentTrackTime, chineseTrack.duration) error:nil];
         
+        currentTrackTime = CMTimeAdd(CMTimeAdd(chineseTrack.duration, englishTrack.duration), currentTrackTime);
     }
     
     AVAssetExportSession *exporter = [[AVAssetExportSession alloc] initWithAsset:composition presetName:AVAssetExportPresetAppleM4A];

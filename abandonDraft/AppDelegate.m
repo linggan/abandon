@@ -29,7 +29,7 @@
     [self.window makeKeyAndVisible];
     //[self deleteData];
     [self parseWords];
-    [self readDataForObject:@"Word"];
+    //[self readDataForObject:@"Word"];
     //[self readDataForObject:@"Queue"];
     
     [self setRecordVC:[[recordViewController alloc]init]];
